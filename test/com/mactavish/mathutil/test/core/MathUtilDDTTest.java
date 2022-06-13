@@ -29,7 +29,7 @@ public class MathUtilDDTTest {
             {1, 1},
             {2, 2},
             {3, 6},
-            {4, 124},};
+            {4, 24},};
     }
 
     //giả sử loop qua từng dòng của mảng, ta vẫn cần gán từng value của cột
