@@ -22,20 +22,45 @@ public class MathUtil {
     // 20 giai thừa 18 con số 0 , vừa kịp đủ cho kiểu long của Java
     // 21 giai thừa tràn kiểu long
     // bài này quy ước tính n ! trong khoảng từ 0..20
+//    public static long getFactorial(int n) {
+//        if (n < 0 || n > 20) {
+//            throw new IllegalArgumentException("Invalid argument. N must be between 0...20");
+//        }
+//
+//        if (n == 0 || n == 1) {
+//            return 1; //ket thuc cuoc choi neu thay gia tri khac biet
+//        }
+//
+//        long product = 1; //tich nhan don, thuat toan heo dat, oc bu don thit
+//        for (int i = 2; i <= n; i++) {
+//            product *= i;
+//        }
+//        return product;
+//    }
+
+    //Học đệ quy trong vonggf 30s - RECURSION
+    //Hiện tợng gọi lại chính mnihf với 1 quy mô khác
+    //VÍ dụ: con búp bê Nga, giống nhau và lồng trong nhau
+    //búp bê to, nhỏ, hơn, nhỏ hon...
+    //tính giùm tui 6!
+    //n! = 1.2.3.4.5.6..n
+    //6! = 6 x 5!
+    //5! = 5 x 4!
+    //4! = 4 x 3!
+    //3! = 3 x 2!
+    //2! = 2 x 1! // điểm dừng
+    //quy ước 1! = 0! = 1;
+    
+    //chốt hạ: n! = n * (n - 1)
+    
     public static long getFactorial(int n) {
-        if (n < 0 || n > 20) {
-            throw new IllegalArgumentException("Invalid argument. N must be between 0...20");
-        }
-
-        if (n == 0 || n == 1) {
-            return 1; //ket thuc cuoc choi neu thay gia tri khac biet
-        }
-
-        long product = 1; //tich nhan don, thuat toan heo dat, oc bu don thit
-        for (int i = 2; i <= n; i++) {
-            product *= i;
-        }
-        return product;
+        if(n < 0 || n > 20)
+            throw new IllegalArgumentException("n must be between 0..20. Plz!");
+        
+    if(n == 0 || n == 1) 
+        return 1; //kết thúc cuộc chơi sớm nếu nhận những đầu vào đặc biệt
+//        
+        return n * getFactorial(n - 1); // cthức đệ quy
     }
-
+    
 }
